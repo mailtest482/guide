@@ -31,6 +31,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: auto; /* Ensure clickable areas can receive pointer events */
+    z-index: 1; /* Ensure arrows are above other elements */
 }
 
 .left-space {
@@ -54,14 +56,15 @@ img {
     font-weight: bold;
     text-align: center;
     cursor: pointer;
+    z-index: 2; /* Ensure arrows are clickable above other elements */
 }
 
 .arrow.left::before {
-    content: '<'; /* Left arrow */
+    content: '←'; /* Left arrow */
 }
 
 .arrow.right::before {
-    content: '>'; /* Right arrow */
+    content: '→'; /* Right arrow */
 }
 
 #start-over {
@@ -76,6 +79,7 @@ img {
     border-radius: 5px;
     font-size: 1.5vw; /* Font size relative to viewport width */
     cursor: pointer;
+    z-index: 2; /* Ensure the button is above other elements */
 }
 
 .loader-wrapper {
@@ -87,7 +91,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Ensure loader is above other content */
+    z-index: 0; /* Ensure loader is below other elements */
 }
 
 .loader {
