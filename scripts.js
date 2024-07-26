@@ -14,11 +14,15 @@ function hideLoader() {
 
 function updateImage() {
     const img = document.getElementById('image');
-    showLoader();
+    showLoader(); // Show loader before image starts loading
     img.onload = function() {
-        hideLoader();
+        hideLoader(); // Hide loader when image has loaded
     };
     img.src = images[currentIndex];
+    img.onerror = function() {
+        hideLoader();
+        alert('Failed to load image.');
+    };
     updateControls();
 }
 
@@ -41,7 +45,6 @@ function updateControls() {
     const rightSpace = document.querySelector('.right-space');
     const startOverButton = document.getElementById('start-over');
 
-    // Hide or show the left and right arrows and start-over button based on current index
     if (currentIndex === 0) {
         leftSpace.querySelector('.arrow').style.display = 'none';
     } else {
