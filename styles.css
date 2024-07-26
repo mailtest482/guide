@@ -1,9 +1,9 @@
 html, body {
     height: 100%;
     margin: 0;
-    display: flex; /* Ensure body uses flexbox layout */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #000;
     overflow: hidden;
 }
