@@ -25,22 +25,22 @@ function prevImage() {
 }
 
 function updateControls() {
-    const leftSpace = document.getElementById('left-space');
-    const rightSpace = document.getElementById('right-space');
+    const leftSpace = document.querySelector('.left-space');
+    const rightSpace = document.querySelector('.right-space');
     const startOverButton = document.getElementById('start-over');
 
     // Hide or show the left and right arrows and start-over button based on current index
     if (currentIndex === 0) {
-        leftSpace.style.display = 'none';
+        leftSpace.querySelector('.arrow').style.display = 'none';
     } else {
-        leftSpace.style.display = 'flex';
+        leftSpace.querySelector('.arrow').style.display = 'flex';
     }
 
     if (currentIndex === images.length - 1) {
-        rightSpace.style.display = 'none';
+        rightSpace.querySelector('.arrow').style.display = 'none';
         startOverButton.style.display = 'block';
     } else {
-        rightSpace.style.display = 'flex';
+        rightSpace.querySelector('.arrow').style.display = 'flex';
         startOverButton.style.display = 'none';
     }
 }
