@@ -22,7 +22,9 @@ img {
     bottom: 0;
     width: 20vw; /* Adjust the width of the clickable area */
     cursor: pointer;
-    background: rgba(0, 0, 0, 0.3); /* Optional: make the clickable area semi-transparent */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .left-space {
@@ -31,4 +33,25 @@ img {
 
 .right-space {
     right: 0;
+}
+
+.arrow {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5); /* Background color for the arrow */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.arrow.left::before {
+    content: '←'; /* Left arrow */
+}
+
+.arrow.right::before {
+    content: '→'; /* Right arrow */
 }
