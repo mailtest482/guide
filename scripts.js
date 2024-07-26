@@ -7,14 +7,48 @@ let currentIndex = 0;
 function updateImage() {
     const img = document.getElementById('image');
     img.src = images[currentIndex];
+    updateControls();
 }
 
 function nextImage() {
-    currentIndex = (currentIndex + 1) % images.length;
-    updateImage();
+    if (currentIndex < images.length - 1) {
+        currentIndex++;
+        updateImage();
+    }
 }
 
 function prevImage() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateImage();
+    }
+}
+
+function updateControls() {
+    const leftSpace = document.getElementById('left-space');
+    const rightSpace = document.getElementById('right-space');
+    const startOverButton = document.getElementById('start-over');
+
+    // Hide or show the left and right arrows and start-over button based on current index
+    if (currentIndex === 0) {
+        leftSpace.style.display = 'none';
+    } else {
+        leftSpace.style.display = 'flex';
+    }
+
+    if (currentIndex === images.length - 1) {
+        rightSpace.style.display = 'none';
+        startOverButton.style.display = 'block';
+    } else {
+        rightSpace.style.display = 'flex';
+        startOverButton.style.display = 'none';
+    }
+}
+
+function goToStart() {
+    currentIndex = 0;
     updateImage();
 }
+
+// Initialize the controls on page load
+updateImage();
