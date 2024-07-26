@@ -20,11 +20,11 @@ img {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 20vw; /* Adjust the width of the clickable area */
-    cursor: pointer;
+    width: 15vw; /* Adjust the width of the clickable area */
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .left-space {
@@ -36,16 +36,17 @@ img {
 }
 
 .arrow {
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 165, 0, 0.75); /* Background color for the arrow */
+    width: 8vw; /* Width of the arrow as a percentage of viewport width */
+    height: 8vw; /* Height of the arrow as a percentage of viewport width */
+    background-color: rgba(255, 165, 0, 0.7); /* Semi-transparent orange background */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
-    font-size: 24px;
+    font-size: 4vw; /* Font size as a percentage of viewport width */
     font-weight: bold;
+    text-align: center;
 }
 
 .arrow.left::before {
