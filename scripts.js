@@ -26,10 +26,18 @@ function hideLoader() {
 // Function to update the image
 function updateImage() {
     showLoader(); // Show loader before changing image
-    setTimeout(() => { // Simulate loading time
-        imageElement.src = images[currentIndex];
-        hideLoader(); // Hide loader after changing image
-    }, 500); // Adjust timeout to simulate load time if necessary
+    imageElement.src = ''; // Clear current image source to trigger reload
+    imageElement.onload = () => {
+        // Hide loader after the image has fully loaded
+        hideLoader();
+    };
+    imageElement.onerror = () => {
+        // In case of an error loading the image
+        hideLoader();
+        console.error('Error loading image');
+    };
+    // Set the new image source
+    imageElement.src = images[currentIndex];
 }
 
 // Function to update button visibility
