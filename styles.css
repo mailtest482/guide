@@ -6,6 +6,9 @@ html, body {
 body {
     background-color: #000;
     overflow: hidden;
+    display: flex; /* Use Flexbox to center content */
+    justify-content: center; /* Horizontally center the loader */
+    align-items: center; /* Vertically center the loader */
 }
 
 .container {
@@ -75,11 +78,19 @@ img {
     cursor: pointer;
 }
 
-.loader {
+.loader-wrapper {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure loader is above other content */
+}
+
+.loader {
     width: 10vw; /* Width relative to viewport width */
     height: 10vw; /* Height relative to viewport width */
     border: 8px solid rgba(255, 255, 255, 0.2);
@@ -87,7 +98,6 @@ img {
     border-top: 8px solid rgba(255, 165, 0, 0.7);
     animation: spin 1s linear infinite;
     display: none; /* Initially hidden */
-    z-index: 1000; /* Ensure loader is above other content */
 }
 
 @keyframes spin {
