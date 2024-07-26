@@ -6,9 +6,9 @@ html, body {
 body {
     background-color: #000;
     overflow: hidden;
-    display: flex; /* Use Flexbox to center content */
-    justify-content: center; /* Horizontally center the loader */
-    align-items: center; /* Vertically center the loader */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
@@ -97,7 +97,8 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 0; /* Ensure loader is below other elements */
+    background: rgba(0, 0, 0, 0.5); /* Slight background to obscure content */
+    z-index: 1000; /* Ensure loader is above all other content */
 }
 
 .loader {
