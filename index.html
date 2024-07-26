@@ -1,4 +1,124 @@
-<div style='position: relative; width: 100%; height: 0; padding-top: 100%; overflow: hidden; will-change: transform;'>
-            <iframe loading='lazy' style='position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;' src='https:&#x2F;&#x2F;www.miricanvas.com&#x2F;v&#x2F;13352d0?embed'>
-            </iframe>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Viewer</title>
+    <style>
+        #pdf-render {
+            border: 1px solid black;
+            width: 100%;
+            height: 80vh;
+            margin: auto;
+            display: block;
+        }
+        #controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">PDF Viewer</h1>
+    <canvas id="pdf-render"></canvas>
+    <div id="controls">
+        <button id="prev-page">Previous</button>
+        <span>Page: <span id="page-num"></span> / <span id="page-count"></span></span>
+        <button id="next-page">Next</button>
+    </div>
+
+    <script src="pdfjs/pdf.js"></script>
+    <script>
+        const pdfPaths = [
+            'pdf1.pdf',
+            'pdf2.pdf',
+            'pdf3.pdf',
+            'pdf4.pdf',
+            'pdf5.pdf',
+            'pdf6.pdf',
+            'pdf7.pdf'
+        ];
+        let pdfDoc = null,
+            pageNum = 1,
+            pageRendering = false,
+            pageNumPending = null,
+            pdfIndex = 0;
+
+        const scale = 1.5,
+            canvas = document.getElementById('pdf-render'),
+            ctx = canvas.getContext('2d');
+
+        function renderPage(num) {
+            pageRendering = true;
+            pdfDoc.getPage(num).then(page => {
+                const viewport = page.getViewport({ scale });
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                const renderContext = {
+                    canvasContext: ctx,
+                    viewport: viewport
+                };
+
+                const renderTask = page.render(renderContext);
+
+                renderTask.promise.then(() => {
+                    pageRendering = false;
+                    if (pageNumPending !== null) {
+                        renderPage(pageNumPending);
+                        pageNumPending = null;
+                    }
+                });
+            });
+
+            document.getElementById('page-num').textContent = num;
+        }
+
+        function queueRenderPage(num) {
+            if (pageRendering) {
+                pageNumPending = num;
+            } else {
+                renderPage(num);
+            }
+        }
+
+        function onPrevPage() {
+            if (pageNum <= 1) {
+                if (pdfIndex > 0) {
+                    pdfIndex--;
+                    loadPdf(pdfPaths[pdfIndex]);
+                }
+                return;
+            }
+            pageNum--;
+            queueRenderPage(pageNum);
+        }
+
+        function onNextPage() {
+            if (pageNum >= pdfDoc.numPages) {
+                if (pdfIndex < pdfPaths.length - 1) {
+                    pdfIndex++;
+                    loadPdf(pdfPaths[pdfIndex]);
+                }
+                return;
+            }
+            pageNum++;
+            queueRenderPage(pageNum);
+        }
+
+        function loadPdf(pdfPath) {
+            pageNum = 1;
+            pdfjsLib.getDocument(pdfPath).promise.then(pdfDoc_ => {
+                pdfDoc = pdfDoc_;
+                document.getElementById('page-count').textContent = pdfDoc.numPages;
+                renderPage(pageNum);
+            });
+        }
+
+        document.getElementById('prev-page').addEventListener('click', onPrevPage);
+        document.getElementById('next-page').addEventListener('click', onNextPage);
+
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdfjs/pdf.worker.js';
+        loadPdf(pdfPaths[pdfIndex]);
+    </script>
+</body>
+</html>
