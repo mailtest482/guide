@@ -3,67 +3,76 @@ const images = [
     'img/006.jpg', 'img/007.jpg', 'img/008.jpg', 'img/009.jpg'
 ];
 let currentIndex = 0;
+const imageElement = document.getElementById('image');
+const loaderWrapper = document.getElementById('loader-wrapper');
+const leftSpace = document.querySelector('.left-space');
+const rightSpace = document.querySelector('.right-space');
+const startOverButton = document.getElementById('start-over');
 
+// Function to show loader
 function showLoader() {
-    document.getElementById('loader').style.display = 'block';
+    loaderWrapper.style.display = 'flex';
+    leftSpace.classList.add('hidden');
+    rightSpace.classList.add('hidden');
 }
 
+// Function to hide loader
 function hideLoader() {
-    document.getElementById('loader').style.display = 'none';
+    loaderWrapper.style.display = 'none';
+    leftSpace.classList.remove('hidden');
+    rightSpace.classList.remove('hidden');
 }
 
+// Function to update the image
 function updateImage() {
-    const img = document.getElementById('image');
-    showLoader(); // Show loader before image starts loading
-    img.onload = function() {
-        hideLoader(); // Hide loader when image has loaded
-    };
-    img.src = images[currentIndex];
-    img.onerror = function() {
-        hideLoader();
-        alert('Failed to load image.');
-    };
-    updateControls();
+    showLoader(); // Show loader before changing image
+    setTimeout(() => { // Simulate loading time
+        imageElement.src = images[currentIndex];
+        hideLoader(); // Hide loader after changing image
+    }, 500); // Adjust timeout to simulate load time if necessary
 }
 
-function nextImage() {
-    if (currentIndex < images.length - 1) {
-        currentIndex++;
-        updateImage();
+// Function to show the start-over button on the last page
+function updateButtons() {
+    if (currentIndex === images.length - 1) {
+        document.querySelector('.right-space').style.display = 'none';
+        startOverButton.style.display = 'block';
+    } else {
+        document.querySelector('.right-space').style.display = 'flex';
+        startOverButton.style.display = 'none';
+    }
+    if (currentIndex === 0) {
+        document.querySelector('.left-space').style.display = 'none';
+    } else {
+        document.querySelector('.left-space').style.display = 'flex';
     }
 }
 
+// Function to go to the previous image
 function prevImage() {
     if (currentIndex > 0) {
         currentIndex--;
         updateImage();
+        updateButtons();
     }
 }
 
-function updateControls() {
-    const leftSpace = document.querySelector('.left-space');
-    const rightSpace = document.querySelector('.right-space');
-    const startOverButton = document.getElementById('start-over');
-
-    if (currentIndex === 0) {
-        leftSpace.querySelector('.arrow').style.display = 'none';
-    } else {
-        leftSpace.querySelector('.arrow').style.display = 'flex';
-    }
-
-    if (currentIndex === images.length - 1) {
-        rightSpace.querySelector('.arrow').style.display = 'none';
-        startOverButton.style.display = 'block';
-    } else {
-        rightSpace.querySelector('.arrow').style.display = 'flex';
-        startOverButton.style.display = 'none';
+// Function to go to the next image
+function nextImage() {
+    if (currentIndex < images.length - 1) {
+        currentIndex++;
+        updateImage();
+        updateButtons();
     }
 }
 
+// Function to go to the start
 function goToStart() {
     currentIndex = 0;
     updateImage();
+    updateButtons();
 }
 
-// Initialize the controls on page load
+// Initial setup
 updateImage();
+updateButtons();
