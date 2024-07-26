@@ -35,16 +35,16 @@ function updateImage() {
 // Function to show the start-over button on the last page
 function updateButtons() {
     if (currentIndex === images.length - 1) {
-        document.querySelector('.right-space').style.display = 'none';
+        rightSpace.classList.add('hidden');
         startOverButton.style.display = 'block';
     } else {
-        document.querySelector('.right-space').style.display = 'flex';
+        rightSpace.classList.remove('hidden');
         startOverButton.style.display = 'none';
     }
     if (currentIndex === 0) {
-        document.querySelector('.left-space').style.display = 'none';
+        leftSpace.classList.add('hidden');
     } else {
-        document.querySelector('.left-space').style.display = 'flex';
+        leftSpace.classList.remove('hidden');
     }
 }
 
@@ -72,6 +72,11 @@ function goToStart() {
     updateImage();
     updateButtons();
 }
+
+// Attach event listeners to arrows
+document.querySelector('.left-space').addEventListener('click', prevImage);
+document.querySelector('.right-space').addEventListener('click', nextImage);
+document.getElementById('start-over').addEventListener('click', goToStart);
 
 // Initial setup
 updateImage();
