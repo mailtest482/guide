@@ -7,6 +7,6 @@ iframe {
     border: none;
 }
 
-#controls {
-    margin-top: 0px;
+#hidden-controls {
+    display: none;
 }
