@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <img id="image" src="img/001.jpg" alt="Image Viewer">
+        <img id="image" src="001.jpg" alt="Image Viewer">
         <div class="left-space">
             <div class="arrow left" onclick="prevImage()"></div>
         </div>
@@ -16,6 +16,8 @@
             <div class="arrow right" onclick="nextImage()"></div>
         </div>
         <button id="start-over" onclick="goToStart()">처음으로</button>
+    </div>
+    <div id="loader-wrapper" class="loader-wrapper">
         <div id="loader" class="loader"></div>
     </div>
 
