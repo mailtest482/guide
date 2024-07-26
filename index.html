@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full Screen Image Viewer</title>
+    <title>Responsive Arrow Icons</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <img id="image" src="img/001.jpg" alt="Image Viewer">
-        <div class="left-space" onclick="prevImage()">
-            <div class="arrow left"></div>
+        <div class="left-space" id="left-space">
+            <div class="arrow left" onclick="prevImage()"></div>
         </div>
-        <div class="right-space" onclick="nextImage()">
-            <div class="arrow right"></div>
+        <div class="right-space" id="right-space">
+            <div class="arrow right" onclick="nextImage()"></div>
         </div>
+        <button id="start-over" onclick="goToStart()">처음으로</button>
     </div>
 
     <script src="scripts.js"></script>
