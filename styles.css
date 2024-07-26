@@ -1,14 +1,11 @@
 html, body {
     height: 100%;
     margin: 0;
-}
-
-body {
+    display: flex; /* Ensure body uses flexbox layout */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
     background-color: #000;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .container {
@@ -94,7 +91,7 @@ img {
     left: 0;
     width: 100vw;
     height: 100vh;
-    display: flex;
+    display: none; /* Hide initially */
     justify-content: center;
     align-items: center;
     background: rgba(0, 0, 0, 0.5); /* Slight background to obscure content */
@@ -108,7 +105,6 @@ img {
     border-radius: 50%;
     border-top: 8px solid rgba(255, 165, 0, 0.7);
     animation: spin 1s linear infinite;
-    display: none; /* Initially hidden */
 }
 
 @keyframes spin {
