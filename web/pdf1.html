@@ -18,7 +18,7 @@
             border: none;
         }
         #controls {
-            position: absolute;
+            position: fixed;
             top: 10px;
             left: 50%;
             transform: translateX(-50%);
@@ -29,22 +29,25 @@
             margin: 0 10px;
             font-size: 16px;
         }
+        #hidden-controls {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <iframe src="../pdf/pdf1.pdf"></iframe>
-    <div id="controls">
+    <div id="hidden-controls">
         <button onclick="goToPrevPage()">Previous</button>
         <button onclick="goToNextPage()">Next</button>
     </div>
 
     <script>
         function goToPrevPage() {
-            window.location.href = 'web/pdf7.html'; // 이전 페이지로 이동
+            window.location.href = 'pdf7.html'; // 이전 페이지로 이동
         }
 
         function goToNextPage() {
-            window.location.href = 'web/pdf2.html'; // 다음 페이지로 이동
+            window.location.href = 'pdf2.html'; // 다음 페이지로 이동
         }
     </script>
 </body>
