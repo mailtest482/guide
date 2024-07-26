@@ -4,8 +4,20 @@ const images = [
 ];
 let currentIndex = 0;
 
+function showLoader() {
+    document.getElementById('loader').style.display = 'block';
+}
+
+function hideLoader() {
+    document.getElementById('loader').style.display = 'none';
+}
+
 function updateImage() {
     const img = document.getElementById('image');
+    showLoader();
+    img.onload = function() {
+        hideLoader();
+    };
     img.src = images[currentIndex];
     updateControls();
 }
