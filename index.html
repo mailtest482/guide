@@ -4,10 +4,35 @@
     <meta charset="UTF-8">
     <title>PDF Viewer - PDF 1</title>
     <link rel="stylesheet" href="styles/style.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        #controls {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-    <h1>PDF Viewer - PDF 1</h1>
-    <iframe src="pdf1.pdf" width="100%" height="600px"></iframe>
+    <iframe src="pdf1.pdf"></iframe>
     <div id="controls">
         <button onclick="goToPrevPage()">Previous</button>
         <button onclick="goToNextPage()">Next</button>
@@ -15,11 +40,11 @@
 
     <script>
         function goToPrevPage() {
-            window.location.href = 'pdf7.pdf'; // 이전 페이지로 이동
+            window.location.href = 'pdf7.html'; // 이전 페이지로 이동
         }
 
         function goToNextPage() {
-            window.location.href = 'pdf2.pdf'; // 다음 페이지로 이동
+            window.location.href = 'pdf2.html'; // 다음 페이지로 이동
         }
     </script>
 </body>
