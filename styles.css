@@ -60,11 +60,11 @@ img {
 }
 
 .arrow.left::before {
-    content: '←'; /* Left arrow */
+    content: '<'; /* Left arrow */
 }
 
 .arrow.right::before {
-    content: '→'; /* Right arrow */
+    content: '>'; /* Right arrow */
 }
 
 #start-over {
