@@ -11,14 +11,14 @@ const startOverButton = document.getElementById('start-over');
 
 // Function to show loader
 function showLoader() {
-    loaderWrapper.style.display = 'flex';
+    loaderWrapper.style.display = 'flex'; // Show loader wrapper
     leftSpace.classList.add('hidden');
     rightSpace.classList.add('hidden');
 }
 
 // Function to hide loader
 function hideLoader() {
-    loaderWrapper.style.display = 'none';
+    loaderWrapper.style.display = 'none'; // Hide loader wrapper
     leftSpace.classList.remove('hidden');
     rightSpace.classList.remove('hidden');
 }
