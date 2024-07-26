@@ -83,6 +83,7 @@ img {
     border-top: 8px solid rgba(255, 165, 0, 0.7);
     animation: spin 1s linear infinite;
     display: none; /* Initially hidden */
+    z-index: 1000; /* Make sure loader is above other content */
 }
 
 @keyframes spin {
