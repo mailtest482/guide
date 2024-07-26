@@ -2,10 +2,6 @@ const images = [
     'img/001.jpg', 'img/002.jpg', 'img/003.jpg', 'img/004.jpg', 'img/005.jpg',
     'img/006.jpg', 'img/007.jpg', 'img/008.jpg', 'img/009.jpg'
 ];
-// Initialize variables
-const images = [
-    '001.jpg', '002.jpg', '003.jpg', '004.jpg', '005.jpg', '006.jpg', '007.jpg', '008.jpg', '009.jpg'
-];
 let currentIndex = 0;
 const imageElement = document.getElementById('image');
 const loaderWrapper = document.getElementById('loader-wrapper');
