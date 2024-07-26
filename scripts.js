@@ -2,6 +2,10 @@ const images = [
     'img/001.jpg', 'img/002.jpg', 'img/003.jpg', 'img/004.jpg', 'img/005.jpg',
     'img/006.jpg', 'img/007.jpg', 'img/008.jpg', 'img/009.jpg'
 ];
+// Initialize variables
+const images = [
+    '001.jpg', '002.jpg', '003.jpg', '004.jpg', '005.jpg', '006.jpg', '007.jpg', '008.jpg', '009.jpg'
+];
 let currentIndex = 0;
 const imageElement = document.getElementById('image');
 const loaderWrapper = document.getElementById('loader-wrapper');
@@ -19,8 +23,7 @@ function showLoader() {
 // Function to hide loader
 function hideLoader() {
     loaderWrapper.style.display = 'none'; // Hide loader wrapper
-    leftSpace.classList.remove('hidden');
-    rightSpace.classList.remove('hidden');
+    updateButtons(); // Update buttons after hiding loader
 }
 
 // Function to update the image
@@ -32,19 +35,22 @@ function updateImage() {
     }, 500); // Adjust timeout to simulate load time if necessary
 }
 
-// Function to show the start-over button on the last page
+// Function to update button visibility
 function updateButtons() {
+    // Check if on the first page
+    if (currentIndex === 0) {
+        leftSpace.classList.add('hidden');
+    } else {
+        leftSpace.classList.remove('hidden');
+    }
+
+    // Check if on the last page
     if (currentIndex === images.length - 1) {
         rightSpace.classList.add('hidden');
         startOverButton.style.display = 'block';
     } else {
         rightSpace.classList.remove('hidden');
         startOverButton.style.display = 'none';
-    }
-    if (currentIndex === 0) {
-        leftSpace.classList.add('hidden');
-    } else {
-        leftSpace.classList.remove('hidden');
     }
 }
 
@@ -53,7 +59,6 @@ function prevImage() {
     if (currentIndex > 0) {
         currentIndex--;
         updateImage();
-        updateButtons();
     }
 }
 
@@ -62,7 +67,6 @@ function nextImage() {
     if (currentIndex < images.length - 1) {
         currentIndex++;
         updateImage();
-        updateButtons();
     }
 }
 
@@ -70,14 +74,12 @@ function nextImage() {
 function goToStart() {
     currentIndex = 0;
     updateImage();
-    updateButtons();
 }
 
-// Attach event listeners to arrows
+// Attach event listeners to arrows and button
 document.querySelector('.left-space').addEventListener('click', prevImage);
 document.querySelector('.right-space').addEventListener('click', nextImage);
 document.getElementById('start-over').addEventListener('click', goToStart);
 
 // Initial setup
-updateImage();
-updateButtons();
+updateImage(); // Initialize with the first image
