@@ -14,6 +14,7 @@ img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    display: block;
 }
 
 .left-space, .right-space {
@@ -50,11 +51,11 @@ img {
 }
 
 .arrow.left::before {
-    content: '<'; /* Left arrow */
+    content: '←'; /* Left arrow */
 }
 
 .arrow.right::before {
-    content: '>'; /* Right arrow */
+    content: '→'; /* Right arrow */
 }
 
 #start-over {
@@ -69,4 +70,23 @@ img {
     border-radius: 5px;
     font-size: 1.5vw; /* Font size relative to viewport width */
     cursor: pointer;
+}
+
+.loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border: 8px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    border-top: 8px solid rgba(255, 165, 0, 0.7);
+    animation: spin 1s linear infinite;
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
