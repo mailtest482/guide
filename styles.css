@@ -33,6 +33,12 @@ img {
     justify-content: center;
     pointer-events: auto; /* Ensure clickable areas can receive pointer events */
     z-index: 1; /* Ensure arrows are above other elements */
+    transition: opacity 0.3s; /* Smooth transition for hiding/showing */
+}
+
+.left-space.hidden, .right-space.hidden {
+    opacity: 0; /* Hide arrows when loading */
+    pointer-events: none; /* Disable pointer events */
 }
 
 .left-space {
