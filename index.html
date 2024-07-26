@@ -8,19 +8,13 @@
 </head>
 <body>
     <div class="container">
-        <img id="image" src="img/001.jpg" alt="Image Viewer">
-        <div class="left-space">
-            <div class="arrow left" onclick="prevImage()"></div>
-        </div>
-        <div class="right-space">
-            <div class="arrow right" onclick="nextImage()"></div>
-        </div>
-        <button id="start-over" onclick="goToStart()">처음으로</button>
+        <img id="image" src="img/001.jpg" alt="Gallery Image"">
+        <div class="left-space arrow left"></div>
+        <div class="right-space arrow right"></div>
+        <button id="start-over">처음으로</button>
     </div>
     <div id="loader-wrapper" class="loader-wrapper">
-        <div id="loader" class="loader"></div>
+        <div class="loader"></div>
     </div>
-
     <script src="scripts.js"></script>
 </body>
-</html>
