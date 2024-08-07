@@ -56,12 +56,12 @@ function updateImage() {
 // Function to update button visibility
 function updateButtons() {
     // Check if on the first page
-    if ((currentIndex === 0) && (currentIndex === firstImages)) {
+    if ((currentIndex === 0) && (currentImages === firstImages)) {
         leftSpace.classList.add('hidden');
         rightSpace.classList.add('hidden');
         startOverButton.style.display = 'none'; // Hide the start over button on the first page
     } 
-    else if((currentIndex === 0) && (currentIndex !== firstImages)){
+    else if((currentIndex === 0) && (currentImages !== firstImages)){
         leftSpace.classList.add('hidden');
         startOverButton.style.display = 'none'; // Hide the start over button on the first page
     }
