@@ -61,7 +61,7 @@ function updateButtons() {
         rightSpace.classList.add('hidden');
         startOverButton.style.display = 'none'; // Hide the start over button on the first page
     } 
-    else if(currentIndex === 0){
+    else if((currentIndex === 0) && (currentIndex !== currentImages.length - 1)){
         leftSpace.classList.add('hidden');
         startOverButton.style.display = 'none'; // Hide the start over button on the first page
     }
