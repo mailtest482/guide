@@ -64,7 +64,7 @@ function updateButtons() {
     }
 
     // Check if on the last page
-    if (currentIndex === currentImages.length - 1) {
+    if ((currentIndex === currentImages.length - 1) && (currentIndex !== 0)) {
         rightSpace.classList.add('hidden');
         startOverButton.style.display = 'block';
     } else {
