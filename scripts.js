@@ -20,6 +20,7 @@ const loaderWrapper = document.getElementById('loader-wrapper');
 const leftSpace = document.querySelector('.left-space');
 const rightSpace = document.querySelector('.right-space');
 const startOverButton = document.getElementById('start-over');
+const startOverButtonEn = document.getElementById('start-over-en');
 const koreanVersionButton = document.getElementById('korean-version');
 const englishVersionButton = document.getElementById('english-version');
 
@@ -55,23 +56,20 @@ function updateImage() {
 
 // Function to update button visibility
 function updateButtons() {
-    // Check if on the first page
     if (currentIndex === 0) {
         leftSpace.classList.add('hidden');
-        startOverButton.style.display = 'none'; // Hide the start over button on the first page
+        rightSpace.classList.remove('hidden');
+        startOverButton.style.display = 'none';
+        startOverButtonEn.style.display = 'none';
+    } else if (currentIndex === currentImages.length - 1) {
+        rightSpace.classList.add('hidden');
+        startOverButton.style.display = currentImages === koreanImages ? 'block' : 'none';
+        startOverButtonEn.style.display = currentImages === englishImages ? 'block' : 'none';
     } else {
         leftSpace.classList.remove('hidden');
-    }
-
-    // Check if on the last page
-    if (currentIndex === currentImages.length - 1) {
-        rightSpace.classList.add('hidden');
-        if (currentIndex !== 0) {
-            startOverButton.style.display = 'block';
-        }
-    } else {
         rightSpace.classList.remove('hidden');
-        startOverButton.style.display = 'none'; // Ensure the start over button is hidden on non-last pages
+        startOverButton.style.display = 'none';
+        startOverButtonEn.style.display = 'none';
     }
 }
 
@@ -101,6 +99,7 @@ function goToStart() {
 document.querySelector('.left-space').addEventListener('click', prevImage);
 document.querySelector('.right-space').addEventListener('click', nextImage);
 document.getElementById('start-over').addEventListener('click', goToStart);
+document.getElementById('start-over-en').addEventListener('click', goToStart);
 
 // Event listeners for version buttons
 document.getElementById('korean-version').addEventListener('click', () => {
@@ -109,6 +108,8 @@ document.getElementById('korean-version').addEventListener('click', () => {
     updateImage();
     koreanVersionButton.classList.add('hidden-button');
     englishVersionButton.classList.remove('hidden-button');
+    startOverButton.style.display = 'none';
+    startOverButtonEn.style.display = 'none';
 });
 
 document.getElementById('english-version').addEventListener('click', () => {
@@ -117,6 +118,8 @@ document.getElementById('english-version').addEventListener('click', () => {
     updateImage();
     koreanVersionButton.classList.remove('hidden-button');
     englishVersionButton.classList.add('hidden-button');
+    startOverButton.style.display = 'none';
+    startOverButtonEn.style.display = 'none';
 });
 
 // Initialize with 000.jpg and show both version buttons
