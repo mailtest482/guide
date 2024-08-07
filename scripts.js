@@ -56,7 +56,12 @@ function updateImage() {
 
 // Function to update button visibility
 function updateButtons() {
-    if (currentIndex === 0) {
+    if (currentIndex === 0 && currentImages === firstImages) {
+        leftSpace.classList.add('hidden');
+        rightSpace.classList.add('hidden');
+        startOverButton.style.display = 'none';
+        startOverButtonEn.style.display = 'none';
+    } else if (currentIndex === 0) {
         leftSpace.classList.add('hidden');
         rightSpace.classList.remove('hidden');
         startOverButton.style.display = 'none';
