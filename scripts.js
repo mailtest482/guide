@@ -117,6 +117,6 @@ document.getElementById('english-version').addEventListener('click', () => {
 });
 
 // Initialize with 000.jpg and show both version buttons
-currentImages = firstImage;
+currentImages = firstImages;
 currentIndex = 0;
 updateImage(); // Initialize with the first image (000.jpg)
