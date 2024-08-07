@@ -56,25 +56,23 @@ function updateImage() {
 // Function to update button visibility
 function updateButtons() {
     // Check if on the first page
-    if ((currentIndex === 0) && (currentImages.length - 1 === 0)) {
-        leftSpace.classList.add('hidden');
-        rightSpace.classList.add('hidden');
-        startOverButton.style.display = 'none'; // Hide the start over button on the first page
-    } 
-    else if((currentIndex === 0) && (currentImages.length -1 !== 0)){
+    if (currentIndex === 0) {
         leftSpace.classList.add('hidden');
         startOverButton.style.display = 'none'; // Hide the start over button on the first page
-    }
-    else if ((currentIndex === currentImages.length - 1) && (currentIndex !== 0)) {
-        rightSpace.classList.add('hidden');
-        startOverButton.style.display = 'block';
-    }
-    else{
-        rightSpace.classList.remove('hidden');
+    } else {
         leftSpace.classList.remove('hidden');
     }
 
-    
+    // Check if on the last page
+    if (currentIndex === currentImages.length - 1) {
+        rightSpace.classList.add('hidden');
+        if (currentIndex !== 0) {
+            startOverButton.style.display = 'block';
+        }
+    } else {
+        rightSpace.classList.remove('hidden');
+        startOverButton.style.display = 'none'; // Ensure the start over button is hidden on non-last pages
+    }
 }
 
 // Function to go to the previous image
