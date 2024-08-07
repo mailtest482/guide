@@ -77,7 +77,7 @@ function nextImage() {
 
 // Function to go to the start
 function goToStart() {
-    currentIndex = 0;
+    currentIndex = 1;
     updateImage();
 }
 
