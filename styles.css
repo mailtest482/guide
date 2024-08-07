@@ -61,14 +61,21 @@ img {
     right: 2vw;
 }
 
-.button-container {
+.top-right-buttons, .bottom-right-buttons {
     position: absolute;
-    bottom: 5vw;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
-    gap: 2vw;
-    z-index: 2;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.top-right-buttons {
+    top: 2vw;
+    right: 2vw;
+}
+
+.bottom-right-buttons {
+    bottom: 2vw;
+    right: 2vw;
 }
 
 button {
