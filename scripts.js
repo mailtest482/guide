@@ -58,6 +58,7 @@ function updateButtons() {
     // Check if on the first page
     if (currentIndex === 0) {
         leftSpace.classList.add('hidden');
+        startOverButton.style.display = 'none'; // Hide the start over button on the first page
     } else {
         leftSpace.classList.remove('hidden');
     }
@@ -68,7 +69,6 @@ function updateButtons() {
         startOverButton.style.display = 'block';
     } else {
         rightSpace.classList.remove('hidden');
-        startOverButton.style.display = 'none';
     }
 }
 
