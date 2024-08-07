@@ -4,8 +4,8 @@ const koreanImages = [
 ];
 
 const englishImages = [
-    'img/en_001.jpg', 'img/en_002.jpg', 'img/en_003.jpg', 'img/en_004.jpg', 'img/en_005.jpg',
-    'img/en_006.jpg', 'img/en_007.jpg', 'img/en_008.jpg', 'img/en_009.jpg'
+    'img/en_001.png', 'img/en_002.png', 'img/en_003.png', 'img/en_004.png', 'img/en_005.png',
+    'img/en_006.png', 'img/en_007.png', 'img/en_008.png', 'img/en_009.png'
 ];
 
 let currentImages = koreanImages; // Default to Korean version
