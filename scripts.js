@@ -8,7 +8,11 @@ const englishImages = [
     'img/en_006.png', 'img/en_007.png', 'img/en_008.png', 'img/en_009.png'
 ];
 
-let currentImages = []; // Current images array
+const firstImages = [
+    'img/000.jpg'
+];
+
+let currentImages = [];
 let currentIndex = 0;
 
 const imageElement = document.getElementById('image');
@@ -113,6 +117,6 @@ document.getElementById('english-version').addEventListener('click', () => {
 });
 
 // Initialize with 000.jpg and show both version buttons
-currentImages = [];
+currentImages = firstImage;
 currentIndex = 0;
 updateImage(); // Initialize with the first image (000.jpg)
