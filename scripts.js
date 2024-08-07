@@ -57,8 +57,8 @@ function updateImage() {
 function updateButtons() {
     // Check if on the first page
     if ((currentIndex === 0) && (currentIndex === currentImages.length - 1)) {
-        #leftSpace.classList.add('hidden');
-        #rightSpace.classList.add('hidden');
+        leftSpace.classList.add('hidden');
+        rightSpace.classList.add('hidden');
         startOverButton.style.display = 'none'; // Hide the start over button on the first page
     } 
     else if(currentIndex === 0){
@@ -69,7 +69,7 @@ function updateButtons() {
         rightSpace.classList.add('hidden');
         startOverButton.style.display = 'block';
     }
-    else if{
+    else{
         rightSpace.classList.remove('hidden');
         leftSpace.classList.remove('hidden');
     }
