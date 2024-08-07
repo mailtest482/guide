@@ -8,7 +8,7 @@ const englishImages = [
     'img/en_006.png', 'img/en_007.png', 'img/en_008.png', 'img/en_009.png'
 ];
 
-let currentImages = koreanImages; // Default to Korean version
+let currentImages = []; // Current images array
 let currentIndex = 0;
 
 const imageElement = document.getElementById('image');
@@ -112,5 +112,7 @@ document.getElementById('english-version').addEventListener('click', () => {
     englishVersionButton.classList.add('hidden-button');
 });
 
-// Initial setup
-updateImage(); // Initialize with the first
+// Initialize with 000.jpg and show both version buttons
+currentImages = [];
+currentIndex = 0;
+updateImage(); // Initialize with the first image (000.jpg)
