@@ -80,11 +80,11 @@ button {
 }
 
 #korean-version {
-    right: 14vw;
+    right: 18vw; /* Adjusted to avoid overlap */
 }
 
 #english-version {
-    right: 2vw;
+    right: 10vw; /* Adjusted to avoid overlap */
 }
 
 .loader-wrapper {
