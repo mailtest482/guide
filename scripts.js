@@ -61,11 +61,15 @@ function updateButtons() {
         rightSpace.classList.add('hidden');
         startOverButton.style.display = 'none';
         startOverButtonEn.style.display = 'none';
+        koreanVersionButton.textContent = '교육자료';
+        englishVersionButton.textContent = 'Educational materials';
     } else if (currentIndex === 0) {
         leftSpace.classList.add('hidden');
         rightSpace.classList.remove('hidden');
         startOverButton.style.display = 'none';
         startOverButtonEn.style.display = 'none';
+        koreanVersionButton.textContent = '한글';
+        englishVersionButton.textContent = 'English';
     } else if (currentIndex === currentImages.length - 1) {
         rightSpace.classList.add('hidden');
         startOverButton.style.display = currentImages === koreanImages ? 'block' : 'none';
@@ -75,6 +79,8 @@ function updateButtons() {
         rightSpace.classList.remove('hidden');
         startOverButton.style.display = 'none';
         startOverButtonEn.style.display = 'none';
+        koreanVersionButton.textContent = '한글';
+        englishVersionButton.textContent = 'English';
     }
 }
 
