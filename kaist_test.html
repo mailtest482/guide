@@ -8,11 +8,11 @@
             const bData = document.getElementById('bData').value;
 
             const response = await fetchfetch('https://script.google.com/macros/s/AKfycbxf5Z7ixESMdxWHWErgvClkYUkXRDyR5lU-_WAQ-UmpNzI4VMC-4IR2UMbvh2FCFR7D/exec', {
-    method: 'POST',
-    body: JSON.stringify({ aData: "valueA", bData: "valueB" }),
-    headers: {
-        'Content-Type': 'application/json'
-    }
+                method: 'POST',
+                body: JSON.stringify({ aData: "valueA", bData: "valueB" }),
+                headers: {
+                'Content-Type': 'application/json'
+                }
 })
 .then(response => response.json())
 .then(data => console.log(data))
