@@ -23,14 +23,18 @@
       const bData = document.getElementById('bData').value;
 
       try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbxIfdKnGUXOHGPp_SMEHpH-68GcMUOzmhbLHr1qHDn37uH0G0fEzcqMirNqCGry3Nt0/exec', {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbxdHosk-sc4nXqIXDa2Unq_8QVehphZLueUgrxtmWobwWyfLWKk4GlkJsjHxDu9jsu1/exec', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({ aData: aData, bData: bData })
-        });
-
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+        
+        
         const result = await response.json();
         alert(result.result);
       } catch (error) {
