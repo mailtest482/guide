@@ -13,6 +13,7 @@
                 headers: {
                 'Content-Type': 'application/json'
                 }
+                mode: 'cors'  // CORS 정책을 따르도록 설정
             })
             .then(response => response.json())
             .then(data => console.log(data))
