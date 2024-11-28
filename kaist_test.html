@@ -31,8 +31,20 @@
           },
           body: JSON.stringify({ aData: aData, bData: bData })
         })
-        .then(response => response.json())
-        .then(data => console.log(data))
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.text(); // response.json() 대신 사용해보세요
+        })
+        .then(text => {
+          if (text) {
+            const data = JSON.parse(text);
+            console.log(data);
+          } else {
+            console.log('Empty response');
+          }
+        })
         .catch(error => console.error('Error:', error));
         
         
