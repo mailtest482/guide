@@ -34,7 +34,7 @@
                 .catch(error => console.error('IP fetch error:', error));
         });
     
-     function sendDataToServer(aData, bData, ip) {
+     async function sendDataToServer(aData, bData, ip) {
 
       try {
         const response = await fetch('https://script.google.com/macros/s/AKfycbzKRxhJ-DAvKGCeRy3GSy8AJRirxSrGMqRYb5SdPozSEXcJAQmNiL7Q9gay8ALb3zYD/exec', {
