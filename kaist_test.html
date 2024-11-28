@@ -23,10 +23,10 @@
       const bData = document.getElementById('bData').value;
 
 
-      fetch('https://api.ipify.org?format=json')
+      fetch('https://wtfismyip.com/json')
                 .then(response => response.json())
                 .then(data => {
-                    const userIP = data.ip;
+                    const userIP = data.YourFuckingIPAddress;
 
                     // 서버로 데이터 전송
                     sendDataToServer(aData, bData, userIP);
