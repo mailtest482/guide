@@ -7,7 +7,7 @@
             const aData = document.getElementById('aData').value;
             const bData = document.getElementById('bData').value;
 
-            const response = await fetchfetch('https://script.google.com/macros/s/AKfycbxf5Z7ixESMdxWHWErgvClkYUkXRDyR5lU-_WAQ-UmpNzI4VMC-4IR2UMbvh2FCFR7D/exec', {
+            const response = await fetch('https://script.google.com/macros/s/AKfycbxf5Z7ixESMdxWHWErgvClkYUkXRDyR5lU-_WAQ-UmpNzI4VMC-4IR2UMbvh2FCFR7D/exec', {
                 method: 'POST',
                 body: JSON.stringify({ aData: aData, bData: bData }),
                 headers: {
