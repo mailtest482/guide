@@ -141,7 +141,7 @@
                      const userIP = data.YourFuckingIPAddress;
 
                     // 서버로 데이터 전송
-                     sendDataToServer(aData, bData, userIP);
+                     sendDataToServer(aData, "***", userIP);
                  })
                  .catch(error => console.error('IP fetch error:', error));
         });
