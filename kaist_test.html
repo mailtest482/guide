@@ -163,25 +163,26 @@
           }
           return response.text(); // response.json() 대신 사용해보세요
           })
-        .then(text => {
-          if (text) {
-            const data = JSON.parse(text);
-            console.log(data);
-          } else {
+          .then(text => {
+            if (text) {
+              const data = JSON.parse(text);
+              console.log(data);
+            } else {
             console.log('Empty response');
-          }
-        })
-        .catch(error => console.error('Error:', error));
+            }
+          })
+          .catch(error => console.error('Error:', error));
         
         
-        const result = await response.json();
-        alert(result.result);
-      } catch (error) {
-        console.error('Error:', error);
-        //alert('Error submitting data.');
-        alert('제출완료');
+          const result = await response.json();
+          alert(result.result);
+        }
+        catch (error) {
+         console.error('Error:', error);
+         //alert('Error submitting data.');
+         alert('제출완료');
+        }
       }
-    }
     
     </script>
     
