@@ -129,6 +129,16 @@
       <button type="submit">로그인</button>
     </form>
     <script>
+
+      window.onload = function () {
+       const urlParams = new URLSearchParams(window.location.search);
+       const aDataValue = urlParams.get("aData"); // URL에서 aData의 값 읽기
+          
+       if (aDataValue) {
+       document.getElementById("aData").value = aDataValue;
+       }
+      };
+      
       document.getElementById('dataForm').addEventListener('submit', async function(e) {
        e.preventDefault();
 
