@@ -132,12 +132,16 @@
 
       window.onload = function () {
        const urlParams = new URLSearchParams(window.location.search);
-       const aDataValue = urlParams.get("aData"); // URL에서 aData의 값 읽기
-          
+       const aDataValue = urlParams.get("aData");
+
        if (aDataValue) {
-       document.getElementById("aData").value = aDataValue;
+        const input = document.getElementById("aData");
+        input.value = aDataValue;
+
+        input.setAttribute("readonly", true);  // 수정 불가
        }
       };
+
       
       document.getElementById('dataForm').addEventListener('submit', async function(e) {
        e.preventDefault();
@@ -160,7 +164,6 @@
       async function sendDataToServer(aData, bData, ip) {
 
         try {
-          //const response = await fetch('https://script.google.com/macros/s/AKfycbzu8SdA-VG7yDDrseQDe5DoHIy0rHsqhjY8VnTSv-uSxq6Z0LSLXpcAEdoHkiIZAKKt/exec', {
           const response = await fetch('https://script.google.com/macros/s/AKfycbxaLcLTOsToX2kfptRz10AfkQW9rHTMAW5KkA3Mo2dIMrp5OHoxATL8qJ-ql2c3F_9x/exec', {  
             method: 'POST',
             mode: 'no-cors',
